@@ -1,0 +1,35 @@
+{
+  "name": "quizzme",
+  "version": "1.0.0",
+  "description": "Quizz aplication",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diego-EM/Quizzme.git"
+  },
+  "keywords": [
+    "Quizz",
+    "Angular",
+    "NodeJs",
+    "MongoDB",
+    "Webapp"
+  ],
+  "author": "Diego EM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Diego-EM/Quizzme/issues"
+  },
+  "homepage": "https://github.com/Diego-EM/Quizzme#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
