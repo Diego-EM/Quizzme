@@ -12,8 +12,9 @@ const quizzQuestions = new Schema({
 });
 
 const quizzSchema = new Schema({
-    quizzTitle : { type: String, required: true  },
-    quizzQuestions: [quizzQuestions]
+    title : { type: String, required: true  },
+    description: { type: String, required: false},
+    questions: [quizzQuestions]
 });
 
 module.exports = mongoose.model('Quizz', quizzSchema);
