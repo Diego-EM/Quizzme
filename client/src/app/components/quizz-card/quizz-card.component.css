@@ -1,0 +1,28 @@
+figure{
+    height: 150px;
+    width: 150px;
+}
+
+figure img{
+    width: 100%;
+    object-fit: cover;
+}
+
+figcaption{
+    color: #fbefff;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.card{
+    display: inline-block;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #4f4abb;
+    border-radius: 5px;
+}
+
+.card:hover{
+    cursor: pointer;
+    background-color: #5d4ebd;
+}
