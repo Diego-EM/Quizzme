@@ -2,7 +2,7 @@
   <h1>QuizzMe</h1>
   <h2>Test your knowledge! 🧠</h2>
   <div class="menu">
-    <app-quizz-card
+    <app-quizz-card class="quizz_card"
     *ngFor="let quizz of quizzes"
     [id]="quizz._id"
     [img_preview]="quizz.img_preview"
@@ -10,7 +10,7 @@
     (sendId)="displayInfo($event)"
     [hidden]="(selected_quizz)"
     ></app-quizz-card>
-    <div *ngIf="(selected_quizz)" class="quizz_info" #quizzInfo>
+    <div *ngIf="(selected_quizz)" class="quizz_info">
       <app-quizz-info
       [img_preview]="selected_quizz.img_preview"
       [title]="selected_quizz.title"
