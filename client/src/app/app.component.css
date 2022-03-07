@@ -27,6 +27,20 @@ h2{
     border: 1px solid #e97aff21;
     border-radius: 5px;
     overflow-y: auto;
+    /* Firefox scrollbar style support */
+    scrollbar-width: thin;
+    scrollbar-color: #40155a #924b9d;
+}
+
+.menu::-webkit-scrollbar{
+    width: 5px;
+    height: 8px;
+    background-color: #924b9d;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background: #40155a;
+    border-radius: 2px;
 }
 
 .quizz_info{
