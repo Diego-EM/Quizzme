@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-quizz-card',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizzCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() id: string = "";
+  @Input() img_preview: string = "";
+  @Input() title: string = "";
+  @Output() sendId: EventEmitter<string> = new EventEmitter();
+
+  constructor() {}
 
   ngOnInit(): void {
   }
 
+  emitId(): void{
+    this.sendId.emit(this.id);
+  }
 }

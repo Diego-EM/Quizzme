@@ -5,6 +5,7 @@ quizzController.getAllQuizzes = async (req, res) => {
     try{
         const requiredValues = {
             "_id": true,
+            "img_preview": true,
             "title": true,
             "description": true
         }

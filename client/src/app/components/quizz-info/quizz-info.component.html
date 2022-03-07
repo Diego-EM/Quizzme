@@ -1,8 +1,11 @@
 <div class="container">
     <figure>
-        <img src="https://images.emojiterra.com/google/android-11/512px/1f9e0.png" alt="placeholder">
+        <img [src]="img_preview" [alt]="title">
     </figure>
-    <h2>Quizz title</h2>
-    <p>Quizz description</p>
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
     <button>Start!</button>
+    <div class="quit" (click)="cancelClick()">
+        <img src="../assets/cancel.svg" alt="Cancel">
+    </div>
 </div>

@@ -12,7 +12,8 @@ const quizzQuestions = new Schema({
 });
 
 const quizzSchema = new Schema({
-    title : { type: String, required: true  },
+    img_preview: { type: String, required: true},
+    title: { type: String, required: true  },
     description: { type: String, required: false},
     questions: [quizzQuestions]
 });

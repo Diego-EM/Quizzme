@@ -9,6 +9,7 @@ figure img{
 }
 
 figcaption{
+    margin-top: 10px;
     color: #fbefff;
     text-align: center;
     font-size: 1.4em;
