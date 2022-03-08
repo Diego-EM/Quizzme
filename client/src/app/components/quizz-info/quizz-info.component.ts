@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  Renderer2,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-quizz-info',
@@ -11,13 +20,17 @@ export class QuizzInfoComponent implements OnInit {
   @Input() title: string = "";
   @Input() description: string = "";
   @Output() cancel: EventEmitter<any> = new EventEmitter();
+
+  @ViewChild('quizzInfo') quizzInfo!: ElementRef<HTMLDivElement>;
   
-  constructor() { }
+  constructor(private render: Renderer2) { }
 
   ngOnInit(): void {
   }
   
   cancelClick(): void{
-    this.cancel.emit();
+    const quizz_info = this.quizzInfo.nativeElement;
+    quizz_info.classList.add('close');
+    this.render.listen(quizz_info,'animationend',()=> this.cancel.emit() );
   }
 }
