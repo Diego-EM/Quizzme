@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.quizz_title{
+    z-index: 100;
+}
+
+.start_timer{
+    position: absolute;
+    z-index: 0;
+}

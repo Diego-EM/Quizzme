@@ -4,7 +4,7 @@
     </figure>
     <h2>{{quizz!.title}}</h2>
     <p>{{quizz!.description}}</p>
-    <button>Start!</button>
+    <button [routerLink]="['/','quizz',quizz!._id]">Start!</button>
     <div class="quit" (click)="cancelClick()">
         <img src="../assets/cancel.svg" alt="Cancel">
     </div>

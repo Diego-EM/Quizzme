@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { QuizzInfo } from '../models/quizz';
+import { QuizzInfo, Quizz } from '../models/quizz';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,6 @@ export class ApiConnectionService {
   }
 
   getQuizz(id: string){
-    return this.connect.get(`${this.url}/${id}`);
+    return this.connect.get<Quizz>(`${this.url}/${id}`);
   }
 }

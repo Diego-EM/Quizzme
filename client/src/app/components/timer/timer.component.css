@@ -1,0 +1,41 @@
+.timer{
+    font-weight: 900;
+}
+
+.small{
+    color: var(--white);
+    font-size: 2em;
+    animation: timeanim 500ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.big{
+    color: #fbefff8a;
+    font-size: 12em;
+    animation: timeanim 500ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.disappear{
+    animation: disappear 1000ms;
+}
+
+@keyframes disappear {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+@keyframes timeanim {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}

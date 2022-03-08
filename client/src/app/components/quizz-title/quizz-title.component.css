@@ -1,0 +1,41 @@
+.title{
+    margin: 0 30px;
+    color: var(--white);
+    font-size: 5em;
+    text-align: center;
+    animation: appear 400ms;
+    animation-timing-function: cubic-bezier(.51,.11,.41,1.62);
+}
+
+@media only screen and (max-width: 500px){
+    .title{
+        font-size: 3em;
+    }
+}
+
+.disappear{
+    animation: disappear 150ms;
+    animation-timing-function: ease-in;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0.5;
+        transform: scale(0.7);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes disappear {
+    from{
+        opacity: 1;
+        transform: scale(1);
+    }
+    to{
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}

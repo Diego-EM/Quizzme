@@ -1,1 +1,17 @@
-<p>playground works!</p>
+<div class="container">
+    
+    <app-quizz-title
+    class="quizz_title"
+    *ngIf="quizz"
+    [title]="quizz.title"
+    (component)="destroyComponent('quizz_title')"
+    ></app-quizz-title>
+
+    <app-timer
+    class="start_timer"
+    [time]="5"
+    [type]="'big'"
+    (timeup)="destroyComponent('start_timer')"
+    ></app-timer>
+
+</div>

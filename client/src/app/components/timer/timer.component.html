@@ -1,0 +1,4 @@
+<div *ngIf="type === 'small'; else big" class="timer small">{{time}}</div>
+<ng-template #big>
+    <div class="timer big" #big>{{time}}</div>
+</ng-template>
