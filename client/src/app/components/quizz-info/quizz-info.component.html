@@ -1,9 +1,9 @@
 <div class="container appear" #quizzInfo>
     <figure>
-        <img [src]="img_preview" [alt]="title">
+        <img [src]="quizz!.img_preview" [alt]="quizz!.title">
     </figure>
-    <h2>{{title}}</h2>
-    <p>{{description}}</p>
+    <h2>{{quizz!.title}}</h2>
+    <p>{{quizz!.description}}</p>
     <button>Start!</button>
     <div class="quit" (click)="cancelClick()">
         <img src="../assets/cancel.svg" alt="Cancel">

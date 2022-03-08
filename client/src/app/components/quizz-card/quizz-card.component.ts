@@ -1,4 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
+
+import { QuizzInfo } from 'src/app/models/quizz';
 
 @Component({
   selector: 'app-quizz-card',
@@ -7,9 +15,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class QuizzCardComponent implements OnInit {
 
-  @Input() id: string = "";
-  @Input() img_preview: string = "";
-  @Input() title: string = "";
+  @Input() quizz!: QuizzInfo;
   @Output() sendId: EventEmitter<string> = new EventEmitter();
 
   constructor() {}
@@ -18,6 +24,6 @@ export class QuizzCardComponent implements OnInit {
   }
 
   emitId(): void{
-    this.sendId.emit(this.id);
+    this.sendId.emit(this.quizz._id);
   }
 }
