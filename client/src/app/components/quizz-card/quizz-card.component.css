@@ -10,7 +10,7 @@ figure img{
 
 figcaption{
     margin-top: 10px;
-    color: #fbefff;
+    color: var(--white);
     text-align: center;
     font-size: 1.4em;
 }
@@ -19,14 +19,14 @@ figcaption{
     display: inline-block;
     margin: 10px;
     padding: 15px;
-    background-color: #4f4abb;
+    background-color: var(--purple);
     border-radius: 5px;
     transition: background 150ms;
 }
 
 .card:hover{
     cursor: pointer;
-    background-color: #5d4ebd;
+    background-color: var(--lightpurple);
 }
 
 .appear{

@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizzCardComponent } from './components/quizz-card/quizz-card.component';
 import { QuizzInfoComponent } from './components/quizz-info/quizz-info.component';
+import { PlaygroundComponent } from './pages/playground/playground.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizzCardComponent,
-    QuizzInfoComponent
+    QuizzInfoComponent,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule,

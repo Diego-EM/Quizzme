@@ -3,6 +3,8 @@
   <h2>Test your knowledge! 🧠</h2>
   <div class="menu">
 
+    <h3 *ngIf="!quizzes">No quizzes available :(</h3>
+
     <app-quizz-card
     *ngFor="let quizz of quizzes"
     [quizz]="quizz"

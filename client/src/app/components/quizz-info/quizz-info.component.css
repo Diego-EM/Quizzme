@@ -7,7 +7,7 @@
     min-height: 350px;
     height: 100%;
     padding: 5px 10px;
-    background-color: #5d4ebd;
+    background-color: var(--lightpurple);
 }
 
 figure{
@@ -21,13 +21,13 @@ img{
 }
 
 h2{
-    color: #fbefff;
+    color: var(--white);
     font-size: 2.5em;
     margin: 5px 0;
 }
 
 p{
-    color: #ecb0ff;
+    color: var(--pink);
     font-size: 1.4em;
     margin: 10px 0;
 }
@@ -41,8 +41,8 @@ button{
     padding: 10px 15px;
     font-size: 1.5em;
     border: none;
-    background: #2a9b1d;
-    color: #fbefff;
+    background: var(--darkgreen);
+    color: var(--white);
     font-weight: 700;
     border-radius: 5px;
     transition: background 150ms;
@@ -50,7 +50,7 @@ button{
 
 button:hover{
     cursor: pointer;
-    background-color: #31b123;
+    background-color: var(--lightgreen);
 }
 
 .quit{
