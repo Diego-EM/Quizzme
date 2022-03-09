@@ -1,0 +1,13 @@
+h3{
+    color: var(--white);
+    text-align: center;
+    margin: 20px;
+    font-size: 2em;
+}
+
+.card{
+    width: 80vw;
+    background: var(--darkpurple);
+    border-radius: 5px;
+    padding: 21px;
+}

@@ -1,0 +1,23 @@
+p{
+    color: var(--white);
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.option{
+    margin: 10px;
+    padding: 15px 50px;
+    background-color: var(--purple);
+    border-radius: 5px;
+    transition: transform 250ms;
+}
+
+.option:hover{
+    cursor: pointer;
+    background-color: var(--lightpurple);
+    transform: scaleX(1.1);
+}
+
+.option:hover > p{
+    transform: scaleX(0.9);
+}

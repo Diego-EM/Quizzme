@@ -10,6 +10,8 @@ import { PlaygroundComponent } from './pages/playground/playground.component';
 import { HomeComponent } from './pages/home/home.component';
 import { QuizzTitleComponent } from './components/quizz-title/quizz-title.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { QuestionCardComponent } from './components/question-card/question-card.component';
+import { AnswerOptionComponent } from './components/answer-option/answer-option.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { TimerComponent } from './components/timer/timer.component';
     PlaygroundComponent,
     HomeComponent,
     QuizzTitleComponent,
-    TimerComponent
+    TimerComponent,
+    QuestionCardComponent,
+    AnswerOptionComponent
   ],
   imports: [
     BrowserModule,

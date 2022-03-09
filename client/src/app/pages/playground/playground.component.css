@@ -7,6 +7,28 @@
     min-height: 100%;
 }
 
+.options_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+}
+
+.options{
+    width: 45%;
+    min-width: fit-content;
+}
+
+@media only screen and (max-width: 450px) {
+    .options_container{
+        padding: 0;
+        margin: 0;
+    }
+}
+
 .quizz_title{
     z-index: 100;
 }
