@@ -6,12 +6,12 @@ export interface Quizz {
     img_preview: string;
 }
 
-interface Question {
+export interface Question {
     question: string;
     options:  Option[];
 }
 
-interface Option {
+export interface Option {
     answer:  string;
     correct: boolean;
 }
