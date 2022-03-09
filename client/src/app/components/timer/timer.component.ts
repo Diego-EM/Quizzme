@@ -17,7 +17,8 @@ export class TimerComponent implements OnInit {
 
   @Input() time: number = 10;
   @Input() type: string = "small";
-  @Output() timeup: EventEmitter<any> = new EventEmitter();
+  @Output() gamestart: EventEmitter<any> = new EventEmitter();
+  // @Output() timeup
 
   timer = setInterval(()=> { this.time--; this.checkTime(); }, 1000);
 
@@ -41,7 +42,7 @@ export class TimerComponent implements OnInit {
     this.render.listen(timer,'animationiteration',()=>{
       timer?.classList.add('disappear');
       this.render.listen(timer,'animationend',()=>{
-        this.timeup.emit();
+        this.gamestart.emit();
       })
     })
   }

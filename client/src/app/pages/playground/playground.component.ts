@@ -4,7 +4,7 @@ import {
   Renderer2
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Quizz } from 'src/app/models/quizz';
+import { Quizz, GameStatus } from 'src/app/models';
 import { ApiConnectionService } from 'src/app/services/api-connection.service';
 
 @Component({
@@ -15,6 +15,7 @@ import { ApiConnectionService } from 'src/app/services/api-connection.service';
 export class PlaygroundComponent implements OnInit {
 
   quizz!: Quizz;
+  gamestatus: GameStatus = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class PlaygroundComponent implements OnInit {
       const id = paramMap.get('id')
       if(id) this.loadQuizz(id);
     })
+    console.log(this.gamestatus)
   }
 
   loadQuizz(id: string): void{
@@ -39,4 +41,6 @@ export class PlaygroundComponent implements OnInit {
     const element = document.querySelector(`.${elclass}`);
     this.render.removeChild(container,element);
   }
+
+  startGame(): void { this.gamestatus = 0 }
 }

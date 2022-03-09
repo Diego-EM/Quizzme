@@ -1,5 +1,4 @@
-<div class="container">
-    
+<div class="container" *ngIf="gamestatus === 1; else Game">
     <app-quizz-title
     class="quizz_title"
     *ngIf="quizz"
@@ -11,12 +10,14 @@
     class="start_timer"
     [time]="5"
     [type]="'big'"
-    (timeup)="destroyComponent('start_timer')"
+    (gamestart)="destroyComponent('start_timer'); startGame()"
     ></app-timer>
-
-    <!-- <app-question-card></app-question-card>
-    <div class="options_container">
-        <app-answer-option *ngFor="let i of [1,2,3,4]" class="options"></app-answer-option>
-    </div> -->
-
 </div>
+<ng-template #Game>
+    <div class="container">
+        <app-question-card></app-question-card>
+        <div class="options_container">
+            <app-answer-option *ngFor="let i of [1,2,3,4]" class="options"></app-answer-option>
+        </div>
+    </div>
+</ng-template>
