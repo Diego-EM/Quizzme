@@ -10,4 +10,16 @@ h3{
     background: var(--darkpurple);
     border-radius: 5px;
     padding: 21px;
+    animation: show 250ms;
+}
+
+@keyframes show {
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
