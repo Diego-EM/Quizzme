@@ -1,4 +1,5 @@
 export enum GameStatus {
+    startGame,
     inGame,
-    startGame
+    gameEnded
 }
