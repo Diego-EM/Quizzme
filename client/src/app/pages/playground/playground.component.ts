@@ -24,9 +24,11 @@ export class PlaygroundComponent implements OnInit {
   currentQuestion?: Question;
   currenAnswer: boolean|null = null;
   correctAnswers: number = 0;
-  gamestatus: GameStatus = 1;
+  totalQuestions: number = 0;
+  gamestatus: GameStatus = 0;
   showTimer: boolean = true;
   timeDone: boolean = false;
+  round = Math.round;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,6 +48,7 @@ export class PlaygroundComponent implements OnInit {
       .subscribe((res: Quizz)=> {
         this.quizz = res
         this.questions = res.questions;
+        this.totalQuestions = this.questions.length;
         this.currentQuestion = this.selectQuestion();
       })
   }
@@ -56,7 +59,7 @@ export class PlaygroundComponent implements OnInit {
     this.timeDone = false;
   }
 
-  startGame(): void { this.gamestatus = 0 }
+  startGame(): void { this.gamestatus = 1 }
 
   selectQuestion(): Question{
     let index = Math.floor(Math.random() * this.questions.length);
@@ -76,19 +79,29 @@ export class PlaygroundComponent implements OnInit {
   }
 
   checkAnswer(): void{
-    if (this.currenAnswer !== null){
-      if(this.currenAnswer) this.correctAnswers++;
-      this.timeUp();
-    }
-  }
-
-  timeUp(): void{
     this.timeDone = true;
     this.showTimer = false;
-    setTimeout(()=>{
-      this.currentQuestion = this.selectQuestion();
-      this.setToInitial();
-    }, 3000)
+    if (this.currenAnswer) this.correctAnswers++;
+      setTimeout(()=>{
+        if (this.questions.length === 0){
+          this.gamestatus = 2;
+        } else {
+          this.currentQuestion = this.selectQuestion();
+          this.setToInitial();
+        }
+      }, 3000)
+  }
+
+  calculatePercentage(): number{
+    return Math.round((this.correctAnswers/this.totalQuestions) * 100)
+  }
+
+  showEndMessage(): string{
+    const result = this.calculatePercentage();
+    if (result <= 60) return "Well, good luck the next time 😉";
+    else if (result < 80) return "Nice job, but you can do it better!! 👍";
+    else if (result <= 99) return "Wow, great score man! 🔥";
+    return "Golly!! A perfect score! 🧠";
   }
 
   destroyComponent(elclass: string): void{

@@ -9,7 +9,7 @@ button{
     color: var(--white);
 }
 
-.container{
+.container, .main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,9 +74,64 @@ button{
     background-color: var(--darkgreen);
 }
 
+.results{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    min-width: 420px;
+    padding: 50px;
+    background-color: var(--darkpurple);
+    border-radius: 5px;
+}
+
 @media only screen and (max-width: 450px) {
     .options_container{
         padding: 0;
         margin: 0;
     }
+    .results{
+        min-width: 260px;
+    }
+}
+
+
+.percentage{
+    position: absolute;
+    top: -75px;
+    text-align: center;
+    font-size: 9em;
+    color: var(--white);
+}
+
+.percentage span{
+    position: absolute;
+    vertical-align: super;
+    font-size: 40%;
+}
+
+.results h3, .results p {
+    text-align: center;
+    color: var(--white);
+}
+
+.results h3{
+    font-size: 2em;
+}
+
+.results p{
+    margin-top: 30px;
+    font-size: 2em;
+}
+
+.results button{
+    margin-top: 20px;
+    background-color: var(--purple);
+    cursor: pointer;
+    transition: background 100ms;
+}
+
+.results button:hover{
+    background-color: var(--lightpurple);
 }
