@@ -12,17 +12,25 @@ export class HomeComponent implements OnInit {
   //The quizz info is stored and displayed when a quizz card is clicked
   selected_quizz: QuizzInfo|undefined;
   //Store all quizzes in an array
-  quizzes!: any;
+  quizzes!: Array<QuizzInfo>;
+  message: string|undefined;
   
-  constructor(
-    private connect: ApiConnectionService
-  ){}
+  constructor(private connect: ApiConnectionService){}
 
   ngOnInit(): void{
     this.connect.getQuizzes()
-      .subscribe((data: QuizzInfo) => {
-        this.quizzes = data;
-      })
+      .subscribe(
+        (data: QuizzInfo[]) => {
+          this.quizzes = data;
+        },
+        (err: Error) =>{
+          this.message = "No quizzes available 😔";
+          console.error(`An error has ocurred: ${err.message}`);
+          console.error(err);
+        },
+        ()=>{
+          if (this.quizzes.length <= 0) this.message = "No quizzes available 😔";
+        })
   }
 
   displayInfo(id: string){

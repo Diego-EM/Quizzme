@@ -12,7 +12,7 @@ export class ApiConnectionService {
   constructor(private connect: HttpClient) { }
 
   getQuizzes(){
-    return this.connect.get<QuizzInfo>(this.url);
+    return this.connect.get<QuizzInfo[]>(this.url);
   }
 
   getQuizz(id: string){
