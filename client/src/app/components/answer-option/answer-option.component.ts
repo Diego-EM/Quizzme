@@ -16,6 +16,7 @@ export class AnswerOptionComponent implements OnInit {
   
   @Input() option!: Option;
   @Input() selected: boolean = false;
+  @Input() time_up: boolean = false;
   @Output() clickOnBtn: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
@@ -24,7 +25,9 @@ export class AnswerOptionComponent implements OnInit {
   }
 
   selectBtn(): void{
-    this.clickOnBtn.emit(this.option.correct);
-    this.selected = true;
+    if (!this.time_up){
+      this.clickOnBtn.emit(this.option.correct);
+      this.selected = true;
+    }
   }
 }

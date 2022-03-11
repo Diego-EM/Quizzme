@@ -1,3 +1,11 @@
-<div class="option" [class.selected]="selected" (click)="selectBtn()" #optionBtn>
+<div class="option"
+[ngClass]="{
+    'selected': selected && !time_up,
+    'checked': selected && time_up,
+    'wrong': time_up && !option.correct,
+    'correct': time_up && option.correct,
+    'option': !time_up
+}"
+(click)="selectBtn()" #optionBtn>
     <p>{{option.answer}}</p>
 </div>

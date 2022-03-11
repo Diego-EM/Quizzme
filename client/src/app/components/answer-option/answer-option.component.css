@@ -4,17 +4,20 @@ p{
     text-align: center;
 }
 
-.option{
+div{
     opacity: 0;
     max-width: 400px;
     margin: 10px;
     padding: 15px 50px;
-    background-color: var(--purple);
     border-radius: 5px;
     animation: show 100ms;
     animation-delay: 250ms;
     animation-fill-mode: forwards;
     transition: all 250ms;
+}
+
+.option{
+    background-color: var(--purple);
 }
 
 .option:hover{
@@ -32,6 +35,18 @@ p{
 
 .selected:hover{
     background-color: var(--white);
+}
+
+.checked{
+    border: 5px solid var(--white);
+}
+
+.correct{
+    background-color: var(--darkgreen);
+}
+
+.wrong{
+    background-color: #ff7789;;
 }
 
 @keyframes show {

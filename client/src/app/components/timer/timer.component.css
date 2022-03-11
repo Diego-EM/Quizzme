@@ -18,6 +18,10 @@
     animation-direction: alternate;
 }
 
+.hurry{
+    color: #ff7789;
+}
+
 .disappear{
     animation: disappear 1000ms;
 }

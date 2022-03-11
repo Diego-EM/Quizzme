@@ -18,7 +18,7 @@ export class TimerComponent implements OnInit {
   @Input() time: number = 10;
   @Input() type: string = "small";
   @Output() gamestart: EventEmitter<any> = new EventEmitter();
-  // @Output() timeup
+  @Output() timeDone: EventEmitter<any> = new EventEmitter();
 
   timer = setInterval(()=> { this.time--; this.checkTime(); }, 1000);
 
@@ -32,7 +32,7 @@ export class TimerComponent implements OnInit {
   checkTime(): void{
     if (this.time === 1) {
       clearInterval(this.timer);
-      if (this.type === "small") console.log('SMALL')
+      if (this.type === "small") this.timeUp();
       else this.removeTimer();
     }
   }
@@ -45,5 +45,9 @@ export class TimerComponent implements OnInit {
         this.gamestart.emit();
       })
     })
+  }
+
+  timeUp():void {
+    setTimeout(()=> this.timeDone.emit(), 1000);
   }
 }

@@ -23,7 +23,10 @@ export class PlaygroundComponent implements OnInit {
   questions!: Question[];
   currentQuestion?: Question;
   currenAnswer: boolean|null = null;
+  correctAnswers: number = 0;
   gamestatus: GameStatus = 1;
+  showTimer: boolean = true;
+  timeDone: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +50,12 @@ export class PlaygroundComponent implements OnInit {
       })
   }
 
+  setToInitial(): void{
+    this.currenAnswer = null;
+    this.showTimer = true;
+    this.timeDone = false;
+  }
+
   startGame(): void { this.gamestatus = 0 }
 
   selectQuestion(): Question{
@@ -68,8 +77,18 @@ export class PlaygroundComponent implements OnInit {
 
   checkAnswer(): void{
     if (this.currenAnswer !== null){
-      console.log('Checked')
+      if(this.currenAnswer) this.correctAnswers++;
+      this.timeUp();
     }
+  }
+
+  timeUp(): void{
+    this.timeDone = true;
+    this.showTimer = false;
+    setTimeout(()=>{
+      this.currentQuestion = this.selectQuestion();
+      this.setToInitial();
+    }, 3000)
   }
 
   destroyComponent(elclass: string): void{
