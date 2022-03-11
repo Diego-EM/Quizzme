@@ -19,6 +19,7 @@ export class PlaygroundComponent implements OnInit {
 
   @ViewChildren('answer') answers!: QueryList<AnswerOptionComponent>;
 
+  errorMessage: string|undefined;
   quizz!: Quizz;
   questions!: Question[];
   currentQuestion?: Question;
@@ -45,11 +46,17 @@ export class PlaygroundComponent implements OnInit {
 
   loadQuizz(id: string): void{
     this.connect.getQuizz(id)
-      .subscribe((res: Quizz)=> {
-        this.quizz = res
-        this.questions = res.questions;
-        this.totalQuestions = this.questions.length;
-        this.currentQuestion = this.selectQuestion();
+      .subscribe((res: Quizz )=> {
+        if(res.error){
+          this.errorMessage = `${res.error} 🤔`;
+          this.gamestatus = -1;
+        }
+        else {
+          this.quizz = res
+          this.questions = res.questions;
+          this.totalQuestions = this.questions.length;
+          this.currentQuestion = this.selectQuestion();
+        }
       })
   }
 
