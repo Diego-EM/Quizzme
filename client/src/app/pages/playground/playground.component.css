@@ -28,9 +28,11 @@ button{
     width: 80%;
 }
 
-.options{
-    width: 45%;
-    min-width: fit-content;
+@media only screen and (max-width: 750px){
+    .options_container{
+        padding: 0;
+        margin: 0;
+    }
 }
 
 .quizz_title{
