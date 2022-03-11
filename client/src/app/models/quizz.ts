@@ -4,6 +4,7 @@ export interface Quizz {
     description: string;
     questions:   Question[];
     img_preview: string;
+    error: string;
 }
 
 export interface Question {

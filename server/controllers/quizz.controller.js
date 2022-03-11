@@ -20,9 +20,13 @@ quizzController.getAllQuizzes = async (req, res) => {
 quizzController.getQuizz = async (req, res) => {
     try{
         const quizz = await quizzSchema.findById(req.params.id);
+        console.log(quizz)
         res.json(quizz);
     }
     catch(e){
+        res.json({
+            error: "Quizz not found"
+        });
         console.error(`Connection failed, err:${e}`);
     }
 }
