@@ -1,10 +1,13 @@
 import {
   Component,
   OnInit,
-  Renderer2
+  QueryList,
+  Renderer2,
+  ViewChildren
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Quizz, GameStatus } from 'src/app/models';
+import { AnswerOptionComponent } from 'src/app/components/answer-option/answer-option.component';
+import { Quizz, GameStatus, Question } from 'src/app/models';
 import { ApiConnectionService } from 'src/app/services/api-connection.service';
 
 @Component({
@@ -14,7 +17,12 @@ import { ApiConnectionService } from 'src/app/services/api-connection.service';
 })
 export class PlaygroundComponent implements OnInit {
 
+  @ViewChildren('answer') answers!: QueryList<AnswerOptionComponent>;
+
   quizz!: Quizz;
+  questions!: Question[];
+  currentQuestion?: Question;
+  currenAnswer: boolean|null = null;
   gamestatus: GameStatus = 1;
 
   constructor(
@@ -28,19 +36,45 @@ export class PlaygroundComponent implements OnInit {
       const id = paramMap.get('id')
       if(id) this.loadQuizz(id);
     })
-    console.log(this.gamestatus)
   }
 
   loadQuizz(id: string): void{
     this.connect.getQuizz(id)
-      .subscribe((res: Quizz)=> this.quizz = res)
+      .subscribe((res: Quizz)=> {
+        this.quizz = res
+        this.questions = res.questions;
+        this.currentQuestion = this.selectQuestion();
+      })
   }
 
-  destroyComponent(elclass: string){
+  startGame(): void { this.gamestatus = 0 }
+
+  selectQuestion(): Question{
+    let index = Math.floor(Math.random() * this.questions.length);
+    let question = this.questions[index];
+    this.questions = this.questions.filter((question, i) => i !== index );
+    return question;
+  }
+
+  selectBtn(): void{
+    this.answers!.forEach( (answer: AnswerOptionComponent) => {
+      answer.selected = false;
+    })
+  }
+
+  getAnswer(correct: boolean): void{
+    this.currenAnswer = correct;
+  }
+
+  checkAnswer(): void{
+    if (this.currenAnswer !== null){
+      console.log('Checked')
+    }
+  }
+
+  destroyComponent(elclass: string): void{
     const container = document.querySelector('.container');
     const element = document.querySelector(`.${elclass}`);
     this.render.removeChild(container,element);
   }
-
-  startGame(): void { this.gamestatus = 0 }
 }

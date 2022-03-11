@@ -1,3 +1,14 @@
+button{
+    border: none;
+    border-radius: 5px;
+    font-size: 2em;
+    border: none;
+    font-size: 2em;
+    padding: 11px 34px;
+    text-align: center;
+    color: var(--white);
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -22,13 +33,6 @@
     min-width: fit-content;
 }
 
-@media only screen and (max-width: 450px) {
-    .options_container{
-        padding: 0;
-        margin: 0;
-    }
-}
-
 .quizz_title{
     z-index: 100;
 }
@@ -36,4 +40,30 @@
 .start_timer{
     position: absolute;
     z-index: 0;
+}
+
+.btn_enabled{
+    background-color: var(--darkgreen);
+    transition: background 100ms;
+}
+
+.btn_enabled:hover{
+    cursor: pointer;
+    background-color: var(--lightgreen);
+}
+
+.btn_disabled{
+    filter: grayscale(1);
+}
+
+.btn_disabled:hover{
+    cursor: default;
+    background-color: var(--darkgreen);
+}
+
+@media only screen and (max-width: 450px) {
+    .options_container{
+        padding: 0;
+        margin: 0;
+    }
 }

@@ -8,16 +8,28 @@
 
     <app-timer
     class="start_timer"
-    [time]="5"
+    [time]="2"
     [type]="'big'"
     (gamestart)="destroyComponent('start_timer'); startGame()"
     ></app-timer>
 </div>
 <ng-template #Game>
     <div class="container">
-        <app-question-card></app-question-card>
+        <app-question-card [question]="currentQuestion?.question"></app-question-card>
         <div class="options_container">
-            <app-answer-option *ngFor="let i of [1,2,3,4]" class="options"></app-answer-option>
+            <app-answer-option
+            *ngFor="let option of currentQuestion?.options"
+            class="options"
+            [option]="option"
+            (clickOnBtn)="selectBtn(); getAnswer($event)"
+            #answer
+            ></app-answer-option>
         </div>
+        <button
+        class="btn_enabled"
+        [class.btn_disabled]="currenAnswer === null"
+        (click)="checkAnswer()"
+        #confirm
+        >ANSWER</button>
     </div>
 </ng-template>

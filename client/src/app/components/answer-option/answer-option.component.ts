@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import { Option } from 'src/app/models';
 
 @Component({
   selector: 'app-answer-option',
@@ -6,10 +13,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answer-option.component.css']
 })
 export class AnswerOptionComponent implements OnInit {
+  
+  @Input() option!: Option;
+  @Input() selected: boolean = false;
+  @Output() clickOnBtn: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  selectBtn(): void{
+    this.clickOnBtn.emit(this.option.correct);
+    this.selected = true;
+  }
 }
